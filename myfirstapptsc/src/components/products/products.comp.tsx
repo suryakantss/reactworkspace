@@ -1,8 +1,23 @@
+import { useEffect, useState } from 'react';
 import { Product } from './product.model';
 import './products.css';
 import { ProductService } from './products.service';
 export function Products(){
-    let productstore:Array<Product> = ProductService.getProducts();
+    let [productstore,setProductStore] = useState<Array<Product>>([]);
+/*
+    ProductService.getProducts().then((res)=>{
+        setProductStore(res);
+        
+    });
+ */
+
+    useEffect(()=>{
+        ProductService.getProductsOBS().subscribe({next:(res)=>{
+            setProductStore(res);
+            console.log(res);
+        }});
+    },[])
+
     return (
         <div>
             <h3>Products</h3>
