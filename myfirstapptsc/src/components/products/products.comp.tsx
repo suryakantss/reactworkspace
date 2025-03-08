@@ -13,7 +13,7 @@ export function Products(){
                     </tr>
                 </thead>
                 <tbody>
-                    {productstore.map(p => <tr><td>{p.id}</td><td>{p.name}</td><td>{p.price}</td></tr>)}
+                    {productstore.map(p => <tr key={p.id}><td>{p.id}</td><td>{p.name}</td><td>{p.price}</td></tr>)}
                 </tbody>
             </table>
         </div>

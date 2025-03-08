@@ -8,7 +8,7 @@ export function Greet(){
         <div>
             <h3>Messages</h3>
             <ol>
-            {msgs.map(m=><li>{m}</li>)}
+            {msgs.map(m=><li key={m}>{m}</li>)}
             </ol>
         </div>
     )
