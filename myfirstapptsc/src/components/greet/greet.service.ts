@@ -7,8 +7,13 @@ export class GreetService {
 }
     */
 
+let datastore:Array<string> = ['Hello React','Happy Leaning','Good Day Ahead']
+
 export function getMessages():Array<string>{
-    return ['Hello React','Happy Leaning','Good Day Ahead'];
+    return datastore;
 } 
 
+export function putMessage(m:string) : void {
+        datastore = [...datastore,m];
+}
 
