@@ -5,7 +5,7 @@ export function Signup() {
     let [msg, setMsg] = useState('');
     
     useEffect(()=>{
-        console.log('SignIn Updated...(msg+user)')
+        console.log('SignIn Updated...(msg+user)');
     },[msg,user]);
 
     useEffect(()=>{
