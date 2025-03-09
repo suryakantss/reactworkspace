@@ -1,9 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function Signup() {
     let [user, setUser] = useState({fname:'',email:''});
-    
     let [msg, setMsg] = useState('');
+    
+    useEffect(()=>{
+        console.log('SignIn Updated...(msg+user)')
+    },[msg,user]);
+
+    useEffect(()=>{
+        console.log('SignIn Mounted...')
+    },[])
+    useEffect(()=>{
+        return ()=>{
+            console.log('SignIn Unmounted...')
+        }
+    },[])
+
+   
 
     function formChanged(e) {
     setUser({...user,[e.target.name]:e.target.value})
