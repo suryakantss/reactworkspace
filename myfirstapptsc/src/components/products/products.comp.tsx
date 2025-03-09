@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Product } from './product.model';
 import './products.css';
 import { ProductService } from './products.service';
+import { Link, Outlet } from 'react-router';
 export function Products(){
     let [productstore,setProductStore] = useState<Array<Product>>([]);
 /*
@@ -28,9 +29,12 @@ export function Products(){
                     </tr>
                 </thead>
                 <tbody>
-                    {productstore.map(p => <tr key={p.id}><td>{p.id}</td><td>{p.name}</td><td>{p.price}</td></tr>)}
+                    {productstore.map(p => <tr key={p.id}><td><Link to={"details/"+p.id}>{p.id}</Link></td><td>{p.name}</td><td>{p.price}</td></tr>)}
                 </tbody>
             </table>
+            <div>
+                <Outlet></Outlet>
+            </div>
         </div>
     )
 }

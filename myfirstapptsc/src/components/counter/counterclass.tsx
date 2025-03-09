@@ -1,5 +1,5 @@
 import React from "react";
-export class CounterClass extends React.Component {
+export default class CounterClass extends React.Component {
     state = {count:0};
     inc = ()=>{
         this.setState({count:this.state.count+1});
