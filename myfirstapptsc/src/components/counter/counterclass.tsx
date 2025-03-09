@@ -11,6 +11,7 @@ export default class CounterClass extends React.Component {
         return (
             <div>
                 <h3>Class Comp</h3>
+                <img src="iphone.jpeg"></img>
             <div>
               <label>Count : {this.state.count} </label>
             </div>

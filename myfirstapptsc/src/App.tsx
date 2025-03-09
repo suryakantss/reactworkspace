@@ -6,7 +6,7 @@ import { Products } from './components/products/products.comp'
 import { Counter } from './components/counter/counter'
 //import { CounterClass } from './components/counter/counterclass'
 import { Details } from './components/products/details/details'
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 
 function App() {
   let CounterClass:any = lazy(()=> import('./components/counter/counterclass'));
@@ -28,7 +28,7 @@ function App() {
            <Route path="details/:id" element={<Details></Details>}></Route>
         </Route>
         <Route path="counter" element={<Counter></Counter>}></Route>
-        <Route path="classcounter" element={<CounterClass></CounterClass>}></Route>
+        <Route path="classcounter" element={<Suspense fallback={<div>loading....</div>}><CounterClass></CounterClass></Suspense>}></Route>
       </Routes>
     </div>
     </div>
