@@ -1,14 +1,27 @@
 import {  useRef, useState } from "react";
 import { LoginService } from "./login.service";
+import { useNavigate } from "react-router";
 
 export function Login() {
   let lref:any = useRef("");
   let pref:any = useRef("");
   let [msg, setMsg] = useState("*******");
+  let nav = useNavigate();
+
+  if(sessionStorage.getItem('user')!=null)
+    {
+//      alert(sessionStorage.getItem('user'));
+      nav('/');
+      return;
+    }
 
   function doLogin() {
     if (LoginService.checkLogin(lref.current.value, pref.current.value))
-      setMsg("Welcome " + lref.current.value);
+     {
+      //setMsg("Welcome " + lref.current.value);
+      sessionStorage.setItem('user',btoa(lref.current.value));
+      nav('/');
+     }
     else 
       setMsg("Invalid login/password");
   }

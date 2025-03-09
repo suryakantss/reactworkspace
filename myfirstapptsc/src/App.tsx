@@ -7,6 +7,7 @@ import { Counter } from './components/counter/counter'
 //import { CounterClass } from './components/counter/counterclass'
 import { Details } from './components/products/details/details'
 import { lazy, Suspense } from 'react'
+import { Login } from './components/login/login.component'
 
 function App() {
   let CounterClass:any = lazy(()=> import('./components/counter/counterclass'));
@@ -19,6 +20,8 @@ function App() {
       <Link to="products">Products</Link>
       <Link to="counter">Counter</Link>
       <Link to="classcounter">Class Counter</Link>
+      <Link to="login">Login</Link>
+      
     </div>
     <div>
       <Routes>
@@ -29,6 +32,8 @@ function App() {
         </Route>
         <Route path="counter" element={<Counter></Counter>}></Route>
         <Route path="classcounter" element={<Suspense fallback={<div>loading....</div>}><CounterClass></CounterClass></Suspense>}></Route>
+        <Route path="login" element={<Login></Login>}></Route>
+    
       </Routes>
     </div>
     </div>
